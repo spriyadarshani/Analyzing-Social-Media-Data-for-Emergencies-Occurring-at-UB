@@ -1,0 +1,15 @@
+#Created by Swati Priyadarshani on 22nd April 2019
+#Created for collecting Bookstore Disaster tweets from twitter
+
+library(twitteR)
+library(rtweet)
+
+create_token(app ='SWATI Priyadarshani',"RTzpxbReNSuq5f3Hf7TJxYq8a",
+             '93y83czQff1cKsfc78y4XCv62Vm9Bx08ystNhAogx53NP7YYeH',
+             '2700502442-clCsMWkI6zbGhUcJ8WGQHAnNCSJuZCh3oSrmE5h',
+             'Sbu25yuln3LkWmfzduEfKgX1DyUtkdDYcwGDpWJWVHJyO');
+
+BlizarrdTweets <- search_tweets("ub AND Blizzard OR Snow", n= 25000, lang="en",geocode = lookup_coords("usa"));
+nrow(BlizarrdTweets)
+
+write_as_csv(BlizarrdTweets,"mlassign244.csv",prepend_ids = TRUE,na="",fileEncoding = "UTF-8");
