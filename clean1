@@ -1,0 +1,11 @@
+#created by Swati Priyadarshani on 9th May 2019
+#collecting text from Incident Tweets and discarding the re-tweets
+
+Incident <- read.csv("BorderwallTweets.csv");
+nrow(Incident);
+
+Incident <-Incident[Incident$is_retweet=='FALSE',]
+nrow(Incident);
+
+data= as.data.frame(Incident$text);
+write.table(data,"Incident",sep = "\n",row.names = FALSE);
